@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/dateDisplay"
+        android:layout_width="119dp"
+        android:layout_height="28dp"
+        android:text="我是默认时间显示"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="118dp" />
+
+    <Button
+        android:id="@+id/date_choose"
+        android:layout_width="151dp"
+        android:layout_height="105dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="351dp" />
+</android.support.constraint.ConstraintLayout>
