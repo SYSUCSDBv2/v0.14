@@ -29,6 +29,15 @@ public class Settings extends Activity {
             }
         });
 
+        Button btn_rtn = (Button)findViewById(R.id.button_return);
+        btn_rtn.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View view) {
+                                            finish();
+                                       }
+                                   }
+
+        );
 
         /*final Switch pop_up = (Switch) findViewById(R.id.setting_notification_switch);
         pop_up.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -217,9 +217,9 @@ public class MainActivity extends AppCompatActivity{
                 //event_title = return_intent.getStringExtra("m_event_title");
                 //event_note = return_intent.getStringExtra("m_event_note");
                 //i = return_intent.getBooleanExtra("i",false);
-                TextView show_title = (TextView)findViewById(R.id.edit_title);
+                //TextView show_title = (TextView)findViewById(R.id.show_title);
                 //show_title.setText(event_title);
-                TextView show_note = (TextView)findViewById(R.id.edit_note);
+                //TextView show_note = (TextView)findViewById(R.id.show_note);
                 //show_note.setText(event_note);
                 /*Button btn_confirmed = (Button)findViewById(R.id.button_confirm);
                 if(i)
@@ -229,10 +229,10 @@ public class MainActivity extends AppCompatActivity{
                 //DBOper oper = new DBOper(this);
                 //Cursor c = oper.queryCursor();
                 //在这个地方把a里的数据赋成数据库里读到的，可以用那两行字测试
-                a.set_event_title("title");
-                a.set_event_note("note");
-                show_title.setText(a.get_event_title());
-                show_note.setText(a.get_event_note());
+                //a.set_event_title("title");
+                //a.set_event_note("note");
+                //show_title.setText(a.get_event_title());
+                //show_note.setText(a.get_event_note());
 
                 //点击确认后执行以下更新操作：
                 //重新查询数据库

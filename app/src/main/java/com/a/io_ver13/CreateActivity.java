@@ -34,6 +34,7 @@ public class CreateActivity extends Activity {
         dboper = new DBOper(this);
         //add button event here
         Button button_date = (Button)findViewById(R.id.button_date_selecter);
+        button_date.setText(m_event_data.day_to_string());
         button_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +48,7 @@ public class CreateActivity extends Activity {
             }
         });
         Button button_time = (Button)findViewById(R.id.button_time_selecter);
+        button_time.setText(m_event_data.time_to_string());
         button_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
