@@ -25,7 +25,7 @@ public class DBOper {
     }
     //插入事件将接受一个EventData数据，注意event_id在此函数中无效
     public void insert(EventData eventdata) {
-        SimpleDateFormat sdf= (SimpleDateFormat) SimpleDateFormat.getDateTimeInstance();
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf= new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         int if_alarm = 0;
         if(eventdata.event_if_alarm) if_alarm = 1;
         SQLiteDatabase database = connector.getWritableDatabase();
@@ -35,7 +35,7 @@ public class DBOper {
     }
 
     public void delete(EventData eventdata) {
-        SimpleDateFormat sdf= (SimpleDateFormat) SimpleDateFormat.getDateTimeInstance();
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf= new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         int if_alarm = 0;
         if(eventdata.event_if_alarm) if_alarm = 1;
         SQLiteDatabase database = connector.getWritableDatabase();
@@ -50,7 +50,7 @@ public class DBOper {
     }
 
     public ArrayList<EventData> query() throws ParseException {
-        SimpleDateFormat sdf = (SimpleDateFormat) SimpleDateFormat.getDateTimeInstance();
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
         SQLiteDatabase database = connector.getReadableDatabase();
         @SuppressLint("Recycle") Cursor cursor = database.rawQuery("select * from EventData", null);
         eventlist.clear();
@@ -65,5 +65,23 @@ public class DBOper {
             eventlist.add(new EventData(title, date, if_alarm, note));
         }
         return eventlist;
+    }
+
+    public EventData getRemindMsg() {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
+        SQLiteDatabase database = connector.getReadableDatabase();
+        Date date = new Date(System.currentTimeMillis());
+        String sql = "select event_title,event_note from EventData where event_date= '"
+                    + sdf.format(date) + "' and event_if_alarm = 1";
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(sql,null);
+        if (cursor.moveToNext()) {
+            String title = cursor.getString(0);
+            String note = cursor.getString(1);
+            EventData eventData = new EventData();
+            eventData.event_title = title;
+            eventData.event_note = note;
+            return eventData;
+        }
+        return null;
     }
 }

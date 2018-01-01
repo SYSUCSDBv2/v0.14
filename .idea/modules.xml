@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://G:\app\IO_ver13-card (1)\IO_ver13-card\IO_ver13.iml" filepath="G:\app\IO_ver13-card (1)\IO_ver13-card\IO_ver13.iml" />
-      <module fileurl="file://F:\temp\DBS_FinalProject\IO_ver13\IO_ver13-card.iml" filepath="F:\temp\DBS_FinalProject\IO_ver13\IO_ver13-card.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://G:\app\IO_ver13-card (1)\IO_ver13-card\app\app.iml" filepath="G:\app\IO_ver13-card (1)\IO_ver13-card\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/v0.14.iml" filepath="$PROJECT_DIR$/v0.14.iml" />
     </modules>
   </component>

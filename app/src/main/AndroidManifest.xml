@@ -21,7 +21,13 @@
         </activity>
         <activity android:name=".CreateActivity"/>
         <activity android:name=".DateSelecter" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
+        <activity android:name=".AlarmAlert" />
+
+        <receiver android:name=".CallAlarm">
+
+        </receiver>
+
     </application>
 
 </manifest>

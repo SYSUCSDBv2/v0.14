@@ -1,6 +1,9 @@
 package com.a.io_ver13;
 
+import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -58,12 +61,26 @@ public class MainActivity extends AppCompatActivity{
     private static final String[] date = {"2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59", "2017-12-30 23:59:59"};
     private static final String[] note = {"1111", "1111483729442342042752043285258395205087", "1111", "1111", "1111", "1111", "1111\n1111\n1111\n12121\n", "1111", "1111", "1111"};
 
+    public static Activity activity;
+    public AlarmManager am;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         context = this;
+        //设置提醒
+        if (activity == null) {
+            activity = this;
+        }
+        if (am == null) {
+            am = (AlarmManager)getSystemService(ALARM_SERVICE);
+        }
+        Intent intent = new Intent(activity,CallAlarm.class);
+        PendingIntent sender = PendingIntent.getBroadcast(activity,0,intent,0);
+        am.setRepeating(AlarmManager.RTC,5000,60*1000,sender);
+
         listView = (ListView) findViewById(R.id.card_listView);
         a = new EventData();
         initView();
@@ -94,6 +111,8 @@ public class MainActivity extends AppCompatActivity{
         listView.addHeaderView(new View(this));
         listView.addFooterView(new View(this));
         listView.setAdapter(adapter);
+
+
 
         //删除
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
